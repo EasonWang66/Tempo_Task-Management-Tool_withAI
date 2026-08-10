@@ -1,0 +1,1 @@
+{"framework":"vite","buildCommand":"npm run build","outputDirectory":"dist","rewrites":[{"source":"/api/openai/:path*","destination":"https://api.openai.com/:path*"},{"source":"/api/anthropic/:path*","destination":"https://api.anthropic.com/:path*"}]}
