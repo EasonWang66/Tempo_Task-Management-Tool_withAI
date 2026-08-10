@@ -10,7 +10,7 @@ Tempo is built as a macOS-first desktop product with a Vercel-ready web version.
 
 ## **Link to Live Demo**
 
-Deploy this repository with Vercel to create the production URL. The Vercel configuration is included in `vercel.json`.
+[https://tempo-task-management-tool-with-ai.vercel.app/](https://tempo-task-management-tool-with-ai.vercel.app/)
 
 ## **Tools and Technologies Used**
 
@@ -50,7 +50,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:1420`.
+Open [http://localhost:1420](http://localhost:1420).
 
 Build for production:
 
@@ -59,32 +59,13 @@ npm run build
 npm run preview
 ```
 
-## **Deploy to Vercel**
-
-1. Import this GitHub repository into Vercel.
-2. Keep the detected framework as **Vite**.
-3. Use `npm run build` as the build command.
-4. Use `dist` as the output directory.
-5. Deploy. No environment variables are required for local mode.
-
-`vercel.json` contains the OpenAI and Anthropic relay rewrites used by the optional bring-your-own-key flow.
-
-## **Run the macOS Desktop App**
-
-Install the Rust toolchain and Apple Command Line Tools, then run:
-
-```bash
-npm run tauri dev
-```
-
-Before public desktop distribution, connect the scaffolded secret-storage boundary to macOS Keychain and package, sign, and notarize the application.
-
 ## **Project Structure**
 
 ```text
 tempo/
   public/
     favicon.svg          Minimal hourglass app mark
+    hourglass.svg        Transparent interface logo
   src/
     App.tsx              Planner, focus, onboarding, history, settings, widget
     lib.ts               Timer math, AI adapters, local breakdowns, reflections
@@ -98,12 +79,3 @@ tempo/
   vercel.json            Vercel build and API relay configuration
   vite.config.ts         Vite development and local API proxy configuration
 ```
-
-## **Current Product Scope**
-
-Tempo is a functional MVP. Authentication, cloud sync, subscriptions, calendar integrations, team workspaces, and mobile clients are intentionally outside the current scope.
-
-## **Privacy and API Keys**
-
-Do not commit API keys to this repository. The web app keeps entered keys only in memory for the active session. For a production desktop release, store secrets using macOS Keychain or an audited Tauri secure-storage plugin rather than browser storage.
-
