@@ -11,6 +11,12 @@ export function localBreakdown(title:string,total:number):Milestone[]{const key=
 export async function breakdown(provider:Provider,title:string,total:number,key?:string):Promise<Milestone[]>{
   if(provider==='local'||!key)return localBreakdown(title,total);
   const prompt=`Break down this task into 3-6 concrete milestones totaling exactly ${total} minutes: ${title}. Return only JSON array with title and minutes.`;
+  if('__TAURI_INTERNALS__'in window){
+    const{invoke}=await import('@tauri-apps/api/core');
+    const raw=await invoke<string>('ai_breakdown',{provider,apiKey:key,prompt});
+    const parsed=JSON.parse(raw);const arr=Array.isArray(parsed)?parsed:(parsed.milestones||parsed.tasks);
+    return arr.map((m:{title:string;minutes:number})=>({id:uid(),title:m.title,minutes:m.minutes,completed:false}));
+  }
   const isPreview=location.hostname==='localhost'||location.hostname==='127.0.0.1';
   const url=provider==='openai'?(isPreview?'/api/openai/v1/chat/completions':'https://api.openai.com/v1/chat/completions'):(isPreview?'/api/anthropic/v1/messages':'https://api.anthropic.com/v1/messages');
   const headers:Record<string,string>={'content-type':'application/json'};
