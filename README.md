@@ -35,6 +35,44 @@ Tempo is built as a macOS-first desktop product with a Vercel-ready web version.
 **History** — review completed sessions and estimation patterns.  
 **Private by default** — tasks remain on the local device; no account or cloud sync is required.
 
+## **How to Use Tempo**
+
+### **1. Add a task to your day**
+
+Open **Planner**, choose a date, and select **New task**. Enter a clear task title, start time, and planned duration. Select the task card afterward to review its details.
+
+![Tempo planner showing scheduled tasks and generated milestones](docs/screenshots/01-planner.png)
+
+### **2. Create manageable milestones**
+
+Select **AI Break Down** from the task details. Tempo uses its private local planner by default, so this works without an account or API key. To generate a more task-specific plan, connect OpenAI or Anthropic from **Settings** and return to the task.
+
+You can review the suggested milestone names and time allocations before starting. The milestone durations are designed to fit inside the task's planned time block.
+
+### **3. Start a focus session**
+
+Select **Start focus session**. During the session you can:
+
+- Pause or resume the active timer.
+- Extend the session by 10 minutes.
+- Check off milestones as you finish them.
+- Select **Timer widget** in the desktop app for a compact, resizable, always-on-top timer.
+- Complete the entire task when the work is finished.
+
+![Tempo focus session with timer and milestone checklist](docs/screenshots/02-focus-session.png)
+
+### **4. Optionally connect an AI provider**
+
+Open **Settings**, choose OpenAI or Anthropic, and enter your own API key. The key is kept in memory only for the active browser session and is not saved to local storage. API usage and billing are handled directly by the selected provider.
+
+![Tempo settings with local, OpenAI, and Anthropic provider choices](docs/screenshots/03-ai-settings.png)
+
+### **5. Review your planning accuracy**
+
+After completing a task, open **History**. Tempo compares the original planned duration with active time spent and provides a short reflection for planning similar work more accurately next time.
+
+![Tempo history showing planned versus actual time and reflection](docs/screenshots/04-history-reflection.png)
+
 ## **Web and Desktop Behavior**
 
 The Vercel-hosted web app defaults to local mode, so visitors can use the full planning and timer workflow immediately without entering an API key. AI providers remain optional in Settings.
@@ -63,6 +101,8 @@ npm run preview
 
 ```text
 tempo/
+  docs/
+    screenshots/          Product walkthrough images used in this README
   public/
     favicon.svg          Minimal hourglass app mark
     hourglass.svg        Transparent interface logo
